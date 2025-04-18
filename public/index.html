@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebP Rasmlar</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .gallery img {
+        width: 200px;
+        margin: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WebP formatga o‘tkazilgan rasmlar</h1>
+    <div class="gallery" id="gallery"></div>
+
+    <script>
+      fetch("/images")
+        .then((response) => response.json())
+        .then((files) => {
+          const gallery = document.getElementById("gallery");
+          files.forEach((file) => {
+            const img = document.createElement("img");
+            img.src = `/webp/${file}`;
+            gallery.appendChild(img);
+          });
+        })
+        .catch((error) => console.error("Xatolik:", error));
+    </script>
+  </body>
+</html>
