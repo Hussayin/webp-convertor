@@ -8,7 +8,7 @@ const inputFolder = path.join(
   // "jetour"
   // "lipmotors"
   // "nevo"
-  "longines"
+  "watches"
 ); // Asl rasmlar
 const outputFolder = path.join(__dirname, "webp"); // WebP rasmlar
 
